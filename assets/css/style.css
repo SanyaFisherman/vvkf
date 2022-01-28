@@ -1334,7 +1334,7 @@ ul, ol {
 
 .intro {
     width: 100%;
-    background: url("../img/intro/intro.jpg");
+    background-image: url("../img/intro/main-intro.jpg");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
