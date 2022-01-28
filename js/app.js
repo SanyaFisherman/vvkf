@@ -10829,7 +10829,7 @@ $(document).ready(function(){
 
     const currentLocation = location.href;
     const menuItem = document.querySelectorAll('.nav__link');
-    const menuItem1 = document.querySelectorAll('.nav-mobile__link');
+    const menuItem1 = document.querySelectorAll('.mobile__link');
     const menuLength = menuItem.length;
     const menuLength1 = menuItem1.length;
 
@@ -10841,7 +10841,7 @@ $(document).ready(function(){
 
     for (let i = 0; i<menuLength1; i++) {
         if(menuItem1[i].href === currentLocation) {
-            menuItem1[i].classList.add('nav-mobile__link--active');
+            menuItem1[i].classList.add('mobile__link--active');
         };
     };
 
