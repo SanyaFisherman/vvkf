@@ -10735,26 +10735,47 @@ $(document).ready(function(){
     ================================ */
     let navToggle = $('#navToggle');
     let mobile = $('#mobile');
+    let mobile__content = $('.mobile__content');
     let mobile__close = $('#mobile__close');
 
     navToggle.on('click', function(e) {
         e.preventDefault();
-        mobile.addClass('nav-mobile--active');
-        $('.header').addClass('header--blackout');
+        setTimeout(function() {
+            mobile__content.addClass('mobile--active');
+        });
+        mobile.addClass('mobile--active');
         $('body').addClass('no-scroll');
     })
 
     mobile__close.on('click', function(e) {
         e.preventDefault();
-        mobile.removeClass('nav-mobile--active');
-        $('.header').removeClass('header--blackout');
+        mobile__content.removeClass('mobile--active');
+
+        setTimeout(function() {
+            mobile.removeClass('mobile--active');
+        }, 300);
         $('body').removeClass('no-scroll');
     })
 
+    mobile.on('click', function(e) {
+        e.preventDefault();
+
+        mobile__content.removeClass('mobile--active');
+
+        setTimeout(function() {
+            mobile.removeClass('mobile--active');
+        }, 300);
+        $('body').removeClass('no-scroll');
+    })
+
+    mobile__content.on('click', function(event) {
+        event.stopPropagation();
+    });
+
     /* header shadow on index.html */
-    if (window.location.pathname=='/index.html') {
-        $('.header__core').addClass('header__shadow');
-    }
+//    if (window.location.pathname=='/index.html') {
+//        $('.header__core').addClass('header__shadow');
+//    }
 
 
     /* Modal
@@ -10786,7 +10807,7 @@ $(document).ready(function(){
         modalClose(modal);
     });
 
-    $('.modal__content').on('click', function(event) {
+    $('.modal__inner').on('click', function(event) {
         event.stopPropagation();
     });
 
@@ -10808,7 +10829,7 @@ $(document).ready(function(){
 
     const currentLocation = location.href;
     const menuItem = document.querySelectorAll('.nav__link');
-    const menuItem1 = document.querySelectorAll('.nav-mobile__link');
+    const menuItem1 = document.querySelectorAll('.mobile__link');
     const menuLength = menuItem.length;
     const menuLength1 = menuItem1.length;
 
@@ -10820,7 +10841,7 @@ $(document).ready(function(){
 
     for (let i = 0; i<menuLength1; i++) {
         if(menuItem1[i].href === currentLocation) {
-            menuItem1[i].classList.add('nav-mobile__link--active');
+            menuItem1[i].classList.add('mobile__link--active');
         };
     };
 
